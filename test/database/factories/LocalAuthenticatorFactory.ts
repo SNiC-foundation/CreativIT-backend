@@ -36,6 +36,23 @@ export default class LocalAuthenticatorFactory extends Factory<LocalAuthenticato
     });
   }
 
+  async addToUser(user: User): Promise<LocalAuthenticator> {
+    const salt = generateSalt();
+    const localAuthParams: LocalAuthenticatorParams = {
+      hash: hashPassword(user.name, salt),
+      salt,
+      user,
+      verifiedEmail: true,
+    };
+    const localAuth = new LocalAuthenticator();
+    localAuth.user = localAuthParams.user;
+    localAuth.salt = localAuthParams.salt;
+    localAuth.hash = localAuthParams.hash;
+    localAuth.verifiedEmail = localAuthParams.verifiedEmail;
+
+    return this.repo.save(localAuth);
+  }
+
   async createSingle(): Promise<LocalAuthenticator> {
     const user = await this.constructObject();
     return this.repo.save(user);

@@ -41,44 +41,44 @@ export interface UserParams extends PersonalUserParams {
 @Entity()
 export default class User extends BaseEnt {
   @Column({ unique: true })
-    email: string;
+  email: string;
 
   @Column()
-    name: string;
+  name: string;
 
   @Column({ default: false })
-    emailVerified: boolean;
+  emailVerified: boolean;
 
-  @Column({ type: 'text', default: '' })
-    dietaryWishes: string;
+  @Column({ type: 'text', nullable: true })
+  dietaryWishes: string;
 
   @Column()
-    agreeToPrivacyPolicy: boolean;
+  agreeToPrivacyPolicy: boolean;
 
   @OneToOne(() => Participant, (participant) => participant.user, { nullable: true, eager: true, cascade: ['insert', 'update', 'remove'] })
-    participantInfo?: Participant;
+  participantInfo?: Participant;
 
   @ManyToMany(() => Role)
   @JoinTable()
-    roles: Role[];
+  roles: Role[];
 
   @OneToOne(() => Ticket, (ticket) => ticket.user, { nullable: true, onDelete: 'SET NULL' })
-    ticket?: Ticket;
+  ticket?: Ticket;
 
   @Column({ nullable: true })
-    partnerId?: number | null;
+  partnerId?: number | null;
 
   @ManyToOne(() => Partner, { nullable: true })
   @JoinColumn({ name: 'partnerId' })
-    partner?: Partner | null;
+  partner?: Partner | null;
 
   @ManyToMany(() => SubscribeActivity, (act) => act.subscribers, { onDelete: 'CASCADE' })
   @JoinTable()
-    subscriptions: SubscribeActivity[];
+  subscriptions: SubscribeActivity[];
 
   @OneToMany(() => TicketScan, (scan) => scan.user)
-    scans: TicketScan[];
+  scans: TicketScan[];
 
   @OneToOne(() => LocalAuthenticator, (auth) => auth.user, { nullable: true })
-    identity?: LocalAuthenticator;
+  identity?: LocalAuthenticator;
 }

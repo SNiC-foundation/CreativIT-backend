@@ -31,8 +31,8 @@ initializeDataSource().then(async (dataSource) => {
   const ticketFactory = new TicketFactory(dataSource);
 
   const users = await userFactory.createMultiple(15);
-  await partnerFactory.createMultiple(5);
-  await roleFactory.createMultiple(3);
+  await roleFactory.createFrontEndRoles();
+  await partnerFactory.createMultiple(1, 3, 5, 8);
   await participantFactory.createMultiple(users, 10);
   const programParts = await programPartFactory.createMultiple(3);
   const speakers = await speakerFactory.createMultiple(3);

@@ -15,14 +15,14 @@ export default class PartnerFactory { // extends Factory<Partner> {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  private constructObject(): Partner {
+  private constructObject(packageType: SponsorPackage | null = null): Partner {
     const params: PartnerParams = {
       name: `${this.capitalizeFirstLetter(faker.random.word())} ${this.capitalizeFirstLetter(faker.word.noun())} Inc.`,
       location: faker.random.word(),
       specialization: `${faker.word.adjective()} ${faker.word.noun()}`,
       description: faker.random.words(10),
       url: `www.${faker.vehicle.fuel().toLowerCase()}.com`,
-      package: SponsorPackage.BRONZE,
+      package: packageType ?? SponsorPackage.BRONZE,
     };
 
     const partner = new Partner();
@@ -31,6 +31,7 @@ export default class PartnerFactory { // extends Factory<Partner> {
     partner.specialization = params.specialization;
     partner.description = params.description;
     partner.url = params.url;
+    partner.package = params.package;
     return partner;
   }
 
@@ -39,10 +40,22 @@ export default class PartnerFactory { // extends Factory<Partner> {
     return this.repo.save(partner);
   }
 
-  createMultiple(amount: number): Promise<Partner[]> {
+  createMultiple(platinumAmount: number, goldAmount: number, silverAmount: number, bronzeAmount: number): Promise<Partner[]> {
     const activities: Partner[] = [];
 
-    for (let i = 0; i < amount; i += 1) {
+    for (let i = 0; i < platinumAmount; i += 1) {
+      activities.push(this.constructObject(SponsorPackage.PLATINUM));
+    }
+
+    for (let i = 0; i < goldAmount; i += 1) {
+      activities.push(this.constructObject(SponsorPackage.GOLD));
+    }
+
+    for (let i = 0; i < silverAmount; i += 1) {
+      activities.push(this.constructObject(SponsorPackage.SILVER));
+    }
+
+    for (let i = 0; i < bronzeAmount; i += 1) {
       activities.push(this.constructObject());
     }
 

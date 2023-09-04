@@ -33,4 +33,21 @@ export default class RoleFactory extends Factory<Role> {
 
     return this.repo.save(activities);
   }
+
+  createFrontEndRoles(): Promise<Role[]> {
+    const activities: Role[] = [];
+
+    const adminRole = new Role();
+    adminRole.name = 'Admin';
+
+    const volunteerRole = new Role();
+    volunteerRole.name = 'Volunteer';
+
+    const partnerRole = new Role();
+    partnerRole.name = 'Partner';
+
+    activities.push(adminRole, volunteerRole, partnerRole);
+
+    return this.repo.save(activities).then(() => activities);
+  }
 }

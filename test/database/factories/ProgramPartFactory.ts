@@ -20,6 +20,7 @@ export default class ProgramPartFactory extends Factory<ProgramPart> {
     const programPart = new ProgramPart();
     programPart.beginTime = params.beginTime;
     programPart.endTime = params.endTime;
+    programPart.name = params.name;
     return programPart;
   }
 
