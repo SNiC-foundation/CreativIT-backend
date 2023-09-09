@@ -19,15 +19,10 @@ import nodemailer from 'nodemailer';
 
 export default function createSMTPTransporter() {
   return nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: parseInt(process.env.SMTP_PORT || '', 10) || undefined,
-    secure: process.env.SMTP_TLS === 'true',
+    service: 'gmail',
     auth: {
       user: process.env.SMTP_USERNAME,
-      pass: process.env.SMTP_PASSWORD,
-    },
-    from: process.env.SMTP_FROM,
-    pool: true,
-    maxConnections: parseInt(process.env.SMTP_MAX_CONNECTIONS || '', 10) || undefined,
+      pass: process.env.SMTP_PASSWORD
+    }
   });
 }

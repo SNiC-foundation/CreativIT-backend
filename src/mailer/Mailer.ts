@@ -42,6 +42,7 @@ export default class Mailer {
       await this.transporter.sendMail({
         ...template.getOptions(),
         to: to.email,
+        from: process.env.SMTP_USERNAME
       });
     } catch (error: any) {
       console.error(`Could not send email to ${to.email} due to an error:`);

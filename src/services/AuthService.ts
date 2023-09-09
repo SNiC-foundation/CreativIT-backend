@@ -15,7 +15,7 @@ import UserService from './UserService';
 
 const INVALID_TOKEN = 'Invalid token.';
 export interface AuthStatus {
-    authenticated: boolean;
+  authenticated: boolean;
 }
 
 export interface ForgotPasswordRequest {
@@ -38,7 +38,7 @@ export default class AuthService {
   ) {
     const AppDataSource = getDataSource();
     this.LocalAuthenticatorRepo = LocalAuthenticatorRepo
-        ?? AppDataSource.getRepository(LocalAuthenticator);
+      ?? AppDataSource.getRepository(LocalAuthenticator);
     this.userRepo = userRepo ?? AppDataSource.getRepository(User);
   }
 
@@ -59,8 +59,8 @@ export default class AuthService {
     );
   }
 
-  async logout(req: express.Request) : Promise<void> {
-    return req.logout({ keepSessionInfo: false }, () => {});
+  async logout(req: express.Request): Promise<void> {
+    return req.logout({ keepSessionInfo: false }, () => { });
   }
 
   async forgotPassword(userEmail: string): Promise<void> {
@@ -165,15 +165,15 @@ export default class AuthService {
       switch (token.type) {
         case 'PASSWORD_RESET':
         case 'PASSWORD_SET':
-        {
-          await this.LocalAuthenticatorRepo.update(user.id, {
-            userId: user.id,
-            verifiedEmail: true,
-            hash: hashPassword(newPassword, salt),
-            salt,
-          });
-          break;
-        }
+          {
+            await this.LocalAuthenticatorRepo.update(user.id, {
+              userId: user.id,
+              verifiedEmail: true,
+              hash: hashPassword(newPassword, salt),
+              salt,
+            });
+            break;
+          }
         default:
           throw new ApiError(HTTPStatus.BadRequest, INVALID_TOKEN);
       }
@@ -182,9 +182,6 @@ export default class AuthService {
     }
 
     if (!user.emailVerified && user.participantInfo !== undefined) {
-      // await Mailer.getInstance().send(user,
-      // new TicketActivated({ name: user.name, ticketCode: user.ticket?.code || '' }));
-      await new UserService().sendFinalInfoSingleUser(user);
       user.emailVerified = true;
       await user.save();
     }
