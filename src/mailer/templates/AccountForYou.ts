@@ -24,14 +24,14 @@ const accountAddedForYouWithPasswordReset = new MailContent<RegisterUserWithPass
 <p>Dear ${context.name},</p>
 <p>An account has just been created for you on the website of SNiC 2023: CreativIT.</p>
 <p>To finish the creation process, you have to set a password by going to
-    <a href="${context.url}/reset-password?token=${context.token}&email=${context.email}">to this link</a>
+    <a href="${context.url}/reset-password?token=${context.token}&email=${context.email}">this link</a>
 . If the link has expired, you can reset your password on the website.</p>
 <p>If your password is set, you can log in into the website.</p>`,
   getSubject: () => 'Finish registering for SNiC 2023: CreativIT',
   getText: (context) => `
 Dear ${context.name},
 
-An account has just been created for you on the website of SNiC 2023: CelerIT.
+An account has just been created for you on the website of SNiC 2023: CreativIT.
 
 To finish the activation process, you have to set a password by going to ${`${context.url}/reset-password?token=${context.token}&email=${context.email}`}. If this link has expired, you can reset your password on the website.
 

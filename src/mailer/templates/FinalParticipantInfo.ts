@@ -49,10 +49,9 @@ function formatTrack(track?: Track) {
 
 const reminder = new MailContent<FinalParticipantInfoParams>({
   getHTML: (context) => `
-<p><i>Due to problems with our email server, you could have received this email already. If this is the case, our apologies for this.</i></p>
 <p>Dear ${context.name},</p>
 
-<p>We are looking forward to seeing you at CelerIT next week! In this email we will give you an overview of all the last things you need to know for next week!</p>
+<p>We are looking forward to seeing you at CreativIT next week! In this email we will give you an overview of all the last things you need to know for next week!</p>
 
 <p><b>Program</b><br>
 Your personal program is as follows:

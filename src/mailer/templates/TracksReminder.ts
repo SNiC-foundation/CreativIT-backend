@@ -26,19 +26,19 @@ interface TracksReminderOptions {
 const reminder = new MailContent<TracksReminderOptions>({
   getHTML: (context) => `
 <p>Dear ${context.name},</p>
-<p>On Monday the 31st of October, the subscriptions for the tracks of SNiC 2022: CelerIT opened.
+<p>On Monday the 25th of October, the subscriptions for the tracks of SNiC 2023: CreativIT opened.
 According to our administration, you are still missing at least one subscription for a track.
 You can subscribe to the different tracks at <a href="${context.url}/program">${context.url}/program</a>.
-Please do so before the subscription deadline of November 14!</p>
+Please do so before the subscription deadline of November 1st!</p>
 <p>Thank you!</p>`,
   getSubject: () => 'Reminder to subscribe for the tracks',
   getText: (context) => `
 Dear ${context.name},
 
-On Monday the 31st of October, the subscriptions for the tracks of SNiC 2022: CelerIT opened.
+On Monday the 25th of October, the subscriptions for the tracks of SNiC 2023: CreativIT opened.
 According to our administration, you are still missing at least one subscription for a track.
 You can subscribe to the different tracks at <a href="${context.url}/program">${context.url}/program</a>.
-Please do so before the subscription deadline of November 14!
+Please do so before the subscription deadline of November 1st!
 
 Thank you!`,
 });

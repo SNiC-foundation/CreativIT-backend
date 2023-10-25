@@ -1,11 +1,10 @@
 {{content}}
 
 Kind regards,
-The CelerIT committee
+The CreativIT committee
 
 
-SNiC 2022 could not be organized without support from its partners:
-Platinum partner: Booking.com
-Gold partners: Nedap, Topicus, Topdesk
-Silver partners: Formorrow, Rijksoverheid, Topicus, ING, Thales, Capgemini, iO
-Bronze partners: IMC, DSW, ASML
+SNiC 2023: CreativIT is powered by our partners:
+Platinum partner: Dimaros
+Gold partners: AIVD, Booking.com, Chipsoft, Conclusion, ING, InfoSupport, Nedap
+Silver partners: Accenture, Adyen, Capgemini, Thales, YER

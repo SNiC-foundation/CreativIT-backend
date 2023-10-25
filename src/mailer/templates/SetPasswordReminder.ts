@@ -31,25 +31,25 @@ const reminder = new MailContent<setPasswordReminderOptions>({
     const link = `${context.url}/reset-password?token=${context.token}&email=${context.email}`;
     return `
 <p>Dear ${context.name},</p>
-<p>On ${context.createDate.toLocaleDateString(undefined, { timeZone: 'Europe/Amsterdam' })}, you created an account for the SNiC 2022: CelerIT website, probably to activate your ticket.
+<p>On ${context.createDate.toLocaleDateString(undefined, { timeZone: 'Europe/Amsterdam' })}, you created an account for the SNiC 2023: CreativIT website, probably to activate your ticket.
 The creation process is however not yet finished, because you still need to set a password. To complete the process, use the following link any time within the next 24 hours: </p>
 <p><a href="${link}">Reset Link</a></p>
-<p>If this link somehow does not work, you can also request a password reset on the CelerIT website.</p>
-<p>If you received this email, but did not buy a ticket for SNiC 2022: CelerIT, please contact us at info@celerit.nl.
+<p>If this link somehow does not work, you can also request a password reset on the CreativIT website.</p>
+<p>If you received this email, but did not buy a ticket for SNiC 2023: CreativIT, please contact us at inquiries@creativit.snic.nl.
 It seems then that someone used the wrong email address for their ticket activation.</p>`;
   },
   getSubject: () => 'Please finish your ticket activation!',
   getText: (context) => `
 Dear ${context.name},
 
-On ${context.createDate.toLocaleDateString(undefined, { timeZone: 'Europe/Amsterdam' })}, you created an account for the SNiC 2022: CelerIT website, probably to activate your ticket.
+On ${context.createDate.toLocaleDateString(undefined, { timeZone: 'Europe/Amsterdam' })}, you created an account for the SNiC 2023: CreativIT website, probably to activate your ticket.
 The creation process is however not yet finished, because you still need to set a password. To complete the process, use the following link any time within the next 24 hours: 
 
 ${context.url}/reset-password?token=${context.token}&email=${context.email}
 
-If this link somehow does not work, you can also request a password reset on the CelerIT website.
+If this link somehow does not work, you can also request a password reset on the CreativIT website.
 
-If you received this email, but did not buy a ticket for SNiC 2022: CelerIT, please contact us at info@celerit.nl.
+If you received this email, but did not buy a ticket for SNiC 2023: CreativIT, please contact us at inquiries@creativit.snic.nl.
 It seems then that someone used the wrong email address for their ticket activation.`,
 });
 
