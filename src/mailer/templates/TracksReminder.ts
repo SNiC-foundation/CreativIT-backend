@@ -26,21 +26,21 @@ interface TracksReminderOptions {
 const reminder = new MailContent<TracksReminderOptions>({
   getHTML: (context) => `
 <p>Dear ${context.name},</p>
-<p>On Monday the 25th of October, the subscriptions for the tracks of SNiC 2023: CreativIT opened.
-According to our administration, you are still missing at least one subscription for a track.
-You can subscribe to the different tracks at <a href="${context.url}/program">${context.url}/program</a>.
-Please do so before the subscription deadline of November 1st!</p>
-<p>Thank you!</p>`,
+<p>Thank you for joining us on November 29th for the 2023 edition of SNiC: 
+CreativIT! According to our administration you have not yet enrolled in any talks. 
+Please keep in mind that this is possible until 23:59h this afternoon. 
+Afterwards you will not be able to enroll anymore and you will be assigned to talks.</p>
+<p>See you November 29th!</p>`,
   getSubject: () => 'Reminder to subscribe for the tracks',
   getText: (context) => `
 Dear ${context.name},
 
-On Monday the 25th of October, the subscriptions for the tracks of SNiC 2023: CreativIT opened.
-According to our administration, you are still missing at least one subscription for a track.
-You can subscribe to the different tracks at <a href="${context.url}/program">${context.url}/program</a>.
-Please do so before the subscription deadline of November 1st!
+Thank you for joining us on November 29th for the 2023 edition of SNiC: CreativIT! 
+According to our administration you have not yet enrolled in any talks. 
+Please keep in mind that this is possible until 23:59h this afternoon. 
+Afterwards you will not be able to enroll anymore and you will be assigned to talks.
 
-Thank you!`,
+See you November 29th!`,
 });
 
 export default class TracksReminder extends MailTemplate<TracksReminderOptions> {

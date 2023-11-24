@@ -6,6 +6,8 @@ import Participant from './Participant';
 
 export enum SponsorPackage {
   // eslint-disable-next-line no-unused-vars
+  COPPER = 'copper',
+  // eslint-disable-next-line no-unused-vars
   BRONZE = 'bronze',
   // eslint-disable-next-line no-unused-vars
   SILVER = 'silver',
@@ -32,30 +34,30 @@ export interface QRParams {
 @Entity()
 export default class Partner extends BaseEnt {
   @Column()
-    name: string;
+  name: string;
 
   @Column()
-    location: string;
+  location: string;
 
   @Column()
-    specialization: string;
+  specialization: string;
 
   @Column({ type: 'text', nullable: true })
-    shortDescription?: string;
+  shortDescription?: string;
 
   @Column({ type: 'text', nullable: true })
-    description?: string;
+  description?: string;
 
   @Column()
-    url: string;
+  url: string;
 
   @Column()
-    package: SponsorPackage;
+  package: SponsorPackage;
 
   @Column({ nullable: true })
-    logoFilename?: string;
+  logoFilename?: string;
 
   @ManyToMany(() => Participant)
   @JoinTable()
-    participants: Participant[];
+  participants: Participant[];
 }

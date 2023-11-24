@@ -16,12 +16,12 @@ export interface CreateParticipantParams extends UpdateParticipantParams {
 @Entity()
 export default class Participant extends BaseEnt {
   @Column({ type: 'integer' })
-    userId: number;
+  userId: number;
 
   @OneToOne(() => User, (user) => user.participantInfo, { eager: false, cascade: ['insert', 'update'] })
   @JoinColumn({ name: 'userId' })
-    user: User;
+  user: User;
 
   @Column()
-    studyProgram: string;
+  studyProgram: string;
 }

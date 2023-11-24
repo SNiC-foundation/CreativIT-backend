@@ -51,35 +51,35 @@ const reminder = new MailContent<FinalParticipantInfoParams>({
   getHTML: (context) => `
 <p>Dear ${context.name},</p>
 
-<p>We are looking forward to seeing you at CreativIT next week! In this email we will give you an overview of all the last things you need to know for next week!</p>
+<p>We are looking forward to seeing you at CreativIT next week! In this email, we will give you an overview of all the last things you need to know for next week!</p>
 
 <p><b>Program</b><br>
 Your personal program is as follows:
 <ul>
-<li>10:00 - 10:45: Check-in</li>
-<li>11:00 - 12:15: How evolving technology has made it easier for everyone to experience the world (Hertog Jan Zaal)</li>
+<li>09:15 - 10:30: Check-in</li>
+<li>10:30 - 11:45: Creativity and Innovation: The Driving Forces of Progress (Copraloods)</li>
 <li>${formatTrack(context.track1)}</li>
-<li>13:30 - 14:30: Lunch</li>
+<li>13:15 - 14:15: Lunch</li>
 <li>${formatTrack(context.track2)}</li>
 <li>${formatTrack(context.track3)}</li>
-<li>17:15 - 18:45: What can algorithms teach us about education? (Hertog Jan Zaal)</li>
-<li>18:45 - 20:30: Dinner with drinks</li>
+<li>17:15 - 18:30: Code Like a DJ with Sonic Pi (Copraloods)</li>
+<li>18:30 - 20:30: Dinner with drinks</li>
 </ul>
 Please make sure to visit the sessions you have signed up for, as all sessions are completely booked.</p>
  
-<p>Lunch, dinner and drinks are all included in the event, you do not need to bring any food. You could optionally bring a water bottle. If you have indicated any allergies, there will be a designated food stand for this, please report there. This allergy stand is located on the middle level, to the right of the main hall. If you had indicated you eat vegetarian, there will be vegetarian options available at all food stands! Additionally, the congress does not require you to bring a bag or a laptop.</p> 
+<p>Lunch, dinner and drinks are all included in the event, you do not need to bring any food. You could optionally bring a water bottle. Additionally, the congress does not require you to bring a bag or a laptop.</p> 
 <p>Note that this is a serious activity, so please dress appropriately and behave accordingly. Alcohol will be served during the dinner, but we expect you to know your limits.</p>
  
 <p><b>Travel</b><br>
 You should have received an email from your study association with the information on at what time your bus leaves and where you have to gather. If you do not have this information, please contact the board of your association. This bus will also bring you back to your city after the program ends. Note that the buses are all FULL, so please don’t join a bus from another city unless communicated with the board of your association.</p> 
-<p>For members from GEWIS, you can travel on your own directly to the Parktheater, Elzentlaan 50, 5615 CN Eindhoven. You can arrive between 10:00 and 10:30.</p>
+<p>For members from Sticky and A-Eskwadraat, you can travel on your own directly to DeFabrique, Westkanaaldijk 7, 3542 DA Utrecht. You can arrive between 09:30 and 09:45.</p>
   
 <p><b>Barcode and badge</b><br>
-Your ticket code is: ${context.ticketCode}. Please bring the barcode below to the conference. On your name badge a QR code will be included. You can use this QR code to share your information with companies you find interesting. If you allow a company to scan your QR, they receive your name, mail address and study program according to our privacy policy. You can also find the QR code on your profile on the CelerIT website.</p>
+Your ticket code is: ${context.ticketCode}. Please bring this code to the conference. On your name badge a QR code will be included. You can use this QR code to share your information with companies you find interesting. If you allow a company to scan your QR, they receive your name, mail address and study program according to our privacy policy. You can also find the QR code on your profile on the CreativIT website.</p>
 <p><img src="${context.url}/api/static/barcodes/${context.ticketCode}.png" alt="${context.ticketCode}"/><br></p>
 
 <p><b>Partners</b><br>
-SNiC 2022: CelerIT would not be possible without our partners. Below you can find a message from our Platinum and Gold partners.</p>
+SNiC 2023: CreativIT would not be possible without our partners. Below you can find a message from our Platinum and Gold partners.</p>
 
 ${context.partners.map((p) => `<hr>
 <p style="white-space: pre-wrap">
@@ -87,48 +87,45 @@ ${context.partners.map((p) => `<hr>
 ${p.description}
 </p><br>`).join(' ')}
 <br>
-<p>See you Wednesday at CelerIT!</p>`,
-  getSubject: () => 'Final information for SNiC 2022: CelerIT',
-  getText: (context) => `>Due to problems with our email server, you could have received this email already. If this is the case, our apologies for this.
-
-----
-
+<p>See you Wednesday at CreativIT!</p>`,
+  getSubject: () => 'Final information for SNiC 2023: CreativIT',
+  getText: (context) => `
 Dear ${context.name},
 
-We are looking forward to seeing you at CelerIT next week! In this email we will give you an overview of all the last things you need to know for next week!
+We are looking forward to seeing you at CreativIT next week! In this email, we will give you an overview of all the last things you need to know for next week!
 
 Program:
 Your personal program is as follows:
-10:00 - 10:45: Check-in
-11:00 - 12:15: How evolving technology has made it easier for everyone to experience the world (Hertog Jan Zaal)
+09:15 - 10:30: Check-in
+10:30 - 11:45: Creativity and Innovation: The Driving Forces of Progress (Copraloods)
 ${formatTrack(context.track1)}
-13:30 - 14:30: Lunch
+13:15 - 14:15: Lunch
 ${formatTrack(context.track2)}
 ${formatTrack(context.track3)}
-17:15 - 18:45: What can algorithms teach us about education? (Hertog Jan Zaal)
-18:45 - 20:30: Dinner with drinks
+17:15 - 18:30: Code Like a DJ with Sonic Pi (Copraloods)
+18:30 - 20:30: Dinner with drinks
 
 Please make sure to visit the sessions you have signed up for, as all sessions are completely booked.
- 
-Lunch, dinner and drinks are all included in the event, you do not need to bring any food. You could optionally bring a water bottle. If you have indicated any allergies, there will be a designated food stand for this, please report there. This allergy stand is located on the middle level, to the right of the main hall. If you had indicated you eat vegetarian, there will be vegetarian options available at all food stands! Additionally, the congress does not require you to bring a bag or a laptop. 
+  
+Lunch, dinner and drinks are all included in the event, you do not need to bring any food. You could optionally bring a water bottle. Additionally, the congress does not require you to bring a bag or a laptop.
 Note that this is a serious activity, so please dress appropriately and behave accordingly. Alcohol will be served during the dinner, but we expect you to know your limits.
- 
+  
 Travel:
-You should have received an email from your study association with the information on at what time your bus leaves and where you have to gather. If you do not have this information, please contact the board of your association. This bus will also bring you back to your city after the program ends. Note that the buses are all FULL, so please don’t join a bus from another city unless communicated with the board of your association. 
-For members from GEWIS, you can travel on your own directly to the Parktheater, Elzentlaan 50, 5615 CN Eindhoven. You can arrive between 10:00 and 10:30.
- 
+You should have received an email from your study association with the information on at what time your bus leaves and where you have to gather. If you do not have this information, please contact the board of your association. This bus will also bring you back to your city after the program ends. Note that the buses are all FULL, so please don’t join a bus from another city unless communicated with the board of your association.
+For members from Sticky and A-Eskwadraat, you can travel on your own directly to DeFabrique, Westkanaaldijk 7, 3542 DA Utrecht. You can arrive between 09:30 and 09:45.
+  
 Barcode and badge:
-Your ticket code is: ${context.ticketCode}. Please bring this code to the conference. On your name badge a QR code will be included. You can use this QR code to share your information with companies you find interesting. If you allow a company to scan your QR, they receive your name, mail address and study program according to our privacy policy. You can also find the QR code on your profile on the CelerIT website.
+Your ticket code is: ${context.ticketCode}. Please bring this code to the conference. On your name badge a QR code will be included. You can use this QR code to share your information with companies you find interesting. If you allow a company to scan your QR, they receive your name, mail address and study program according to our privacy policy. You can also find the QR code on your profile on the CreativIT website.
 
 Partners:
-SNiC 2022: CelerIT would not be possible without our partners. Below you can find a message from our Platinum and Gold partners.
+SNiC 2023: CreativIT would not be possible without our partners. Below you can find a message from our Platinum and Gold partners.
 
 ${context.partners.map((p) => `${p.name}
 ${p.description}`).join(`
 
 `)}
 
-See you Wednesday at CelerIT!`,
+See you Wednesday at CreativIT!`,
 });
 
 export default class FinalParticipantInfo extends MailTemplate<FinalParticipantInfoParams> {
